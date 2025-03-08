@@ -1,0 +1,80 @@
+ <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={tw`py-3`} // Adding vertical padding
+      >
+        {data.map((item, index) => {
+          return (
+            <View key={index} style={tw`w-[140px] h-[300px] mx-3`}>
+              <Image
+                source={require('../assets/super.jpg')}
+                style={tw`h-full w-full rounded-lg`}
+                resizeMode="cover"
+              />
+              <Text style={tw`text-white text-center mt-2`}>Hello World</Text>
+            </View>
+          );
+        })}
+      </ScrollView>
+
+
+
+
+
+
+
+
+
+
+<ScrollView style={tw`space-y-3`} showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom:15}}>
+<Text style={tw` font-semibold ml-1 text-2xl`} >Results ({results.length}) </Text>
+<View style={tw`flex-row flex-wrap justify-around mx-1 `}>
+{
+    results.map(({item,index})=>{
+        return(
+            <TouchableWithoutFeedback key={index} style={tw`items-center mb-1 `}
+                onPress={()=>navigation.navigate('Movie',item)}
+            >
+                <View style={tw`shadow-lg rounded-lg`}>
+                <Image source={require('../assets/avens.png')}
+                    style={{width:width*0.44,height:height*0.3 ,borderRadius:18}} /> 
+                </View>
+                <Text>
+                    {movie}
+                </Text>
+                
+            </TouchableWithoutFeedback>
+        )
+    })
+}
+
+
+</View>
+
+
+</ScrollView>
+
+ const [movies, setMovies] = useState([]);
+  useEffect(() => {
+    const getMovies = async () => {
+      const movieData = await fetchTrendingMovies();
+      setMovies(movieData);
+    };
+    getMovies();
+  }, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
