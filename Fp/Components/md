@@ -1,0 +1,27 @@
+import { useState } from "react"
+
+   <
+   k
+   ,
+   8
+''
+   {/**/}
+   
+
+
+
+
+   const[count,setcount] = useState(false)
+   const hd = (id)=>{
+      setcount((prev)=>{
+         const newcount = {...prev}
+         if (newcount > 0) {
+            newcount -= 1
+         }
+         const totalcount = Object.values(newcount).reduce((a,b) => a +b ,0)
+         if(totalcount == 0){
+            settoggle(false)
+          }
+          return newcount
+      })
+   }
